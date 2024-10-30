@@ -50,9 +50,10 @@ fun NoteAddScreen(navController: NavController){
             label = { Text("Content")},
             modifier = Modifier.fillMaxWidth()
         )
-        validationError?.let { error ->
-            Text(text = error, color = Color.Red, modifier = Modifier.padding(8.dp))
-        }
+        Text(
+            text="$validationError",
+            color = Color.Red
+        )
         ElevatedButton(onClick = {
             if (title.length in 3..20 && content.length in 4..100) {
                 val note = Note(id = UUID.randomUUID().toString(),title, content)
